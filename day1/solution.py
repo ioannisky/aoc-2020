@@ -11,7 +11,7 @@ def lookingForNumbersThatSumTo(data, start, number, nnumber):
             if(rem < 0):
                 continue
             n = lookingForNumbersThatSumTo(data, i+1, rem, nnumber-1)
-            if(n is None):
+            if(n is not None):
                 ret.append(i)
                 ret += n
                 return ret

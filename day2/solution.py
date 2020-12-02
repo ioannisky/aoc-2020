@@ -38,15 +38,15 @@ if __name__ == "__main__":
         seg = line.strip().split(" ")
         num = seg[0].split("-")
         low = int(num[0])
-        heigh = int(num[1])
+        high = int(num[1])
         letter = seg[1][:-1]
         password = seg[2]
 
         if(doesPasswordHaveALetterANumberOfTimes(password, letter,
-                                                 low, heigh)):
+                                                 low, high)):
             correct_password1 += 1
         if(doesPasswordHaveALetterInOneOfTheTwoPositions(password, letter,
-                                                         low, heigh)):
+                                                         low, high)):
             correct_password2 += 1
 
     print "Solution 1", correct_password1

@@ -16,9 +16,9 @@ def checkTreesOnSlope(mapdata, x_slope, y_slope):
 if __name__ == "__main__":
     mapdata = []
     f = open("input", "r")
-    for l in f:
-        l = l.strip()
-        mapdata.append(l)
+    for line in f:
+        line = line.strip()
+        mapdata.append(line)
 
     slopes = [[1, 1], [3, 1], [5, 1], [7, 1], [1, 2]]
     total = 1

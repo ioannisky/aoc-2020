@@ -7,7 +7,7 @@ class Instruction:
         self.value = int(value)
 
     def __str__(self):
-        return "{0} {1}".format(self.op,self.value)
+        return "{0} {1}".format(self.op, self.value)
 
 
 class VM:
@@ -16,10 +16,10 @@ class VM:
         self.execution = list()
         self.reset()
 
-    def reset(self,re=False):
+    def reset(self, re=False):
         self.ip = 0
         self.acc = 0
-        if(re==False):
+        if re == False:
             for i in range(0, len(self.execution)):
                 self.execution[i] = 0
 
@@ -27,10 +27,10 @@ class VM:
         self.instructions.append(instruction)
         self.execution.append(0)
 
-    def run(self,ip=None):
-        count=0
-        if(ip!=None):
-            self.ip=ip
+    def run(self, ip=None):
+        count = 0
+        if ip != None:
+            self.ip = ip
         while True:
             if self.ip >= len(self.execution):
                 break
@@ -50,9 +50,9 @@ class VM:
         return 0
 
     def __str__(self):
-        ret=""
+        ret = ""
         for i in self.instructions:
-            ret+=str(i)+"\n"
+            ret += str(i) + "\n"
         return ret
 
     def __repr__(self):
@@ -73,30 +73,30 @@ if __name__ == "__main__":
     vm.run()
     print "Accumulator after stop {}".format(vm.acc)
     execution = copy.copy(vm.execution)
-    instructions_tested=0
+    instructions_tested = 0
     for i in range(0, len(execution)):
         if execution[i] == 1:
-            
+
             oldinstr = vm.instructions[i]
             if oldinstr.op == "acc":
                 continue
             oiv = oldinstr.op
             if oldinstr.op == "jmp":
-                if(execution[i+1]!=0):
+                if execution[i + 1] != 0:
                     continue
                 oldinstr.op = "nop"
             elif oldinstr.op == "nop":
-                if(execution[i+oldinstr.value]!=0):
+                if execution[i + oldinstr.value] != 0:
                     continue
                 oldinstr.op = "jmp"
-            instructions_tested+=1
+            instructions_tested += 1
             vm.reset(True)
-            vm.execution[i]=0
+            vm.execution[i] = 0
             if vm.run(i) == 0:
                 break
             oldinstr.op = oiv
-
+    # print vm.execution
     vm.reset()
     vm.run()
-    #print instructions_tested
+    # print instructions_tested
     print "Accumulator after finish {}".format(vm.acc)

@@ -1,3 +1,11 @@
+#This is wrong but it works for the first few numbers
+def findNumberOfCombinations(n):
+    res = (n-1) * (n) / 2
+    return res
+
+
+
+
 if __name__ == "__main__":
     data = [0]
     with open("input", "r") as f:
@@ -24,11 +32,11 @@ if __name__ == "__main__":
 
     counter = 1
     for ois in onesInSequence:
-        if ois - 1 == 0:
-            continue
-        ois - 1
-        res = (ois - 1) * (ois) / 2
-        counter *= res + 1
+        counter *= (findNumberOfCombinations(ois)+1)
 
     print diffIndex[1] * diffIndex[3]
     print counter
+
+    #for i in range(1,10):
+    #   print findNumberOfCombinations(i)
+    #    print i, findNumberOfCombinations(i)

@@ -1,5 +1,5 @@
 def countSeatsInAllDirections(data, y, x):
-    occubied = 0
+    occupied = 0
     # countSeatsUp
     i = y - 1
     while i >= 0:
@@ -7,7 +7,7 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i -= 1
     # countSeatsDown
@@ -17,7 +17,7 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i += 1
     # countSeatsLeft
@@ -27,7 +27,7 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i -= 1
     # countSeatsRight
@@ -37,7 +37,7 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i += 1
     # countUpLeft
@@ -48,7 +48,7 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i -= 1
         h -= 1
@@ -60,7 +60,7 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i -= 1
         h += 1
@@ -72,7 +72,7 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i += 1
         h -= 1
@@ -84,24 +84,23 @@ def countSeatsInAllDirections(data, y, x):
         if c == "L":
             break
         if c == "#":
-            occubied += 1
+            occupied += 1
             break
         i += 1
         h += 1
-    # print "DR",occubied
-    return occubied
+    return occupied
 
 
 def countSeats(data):
-    occubied = 0
+    occupied = 0
     empty = 0
     for l in data:
         for c in l:
             if c == "#":
-                occubied += 1
+                occupied += 1
             elif c == "L":
                 empty += 1
-    return occubied, empty
+    return occupied, empty
 
 
 def countAdjacent(data, y, x):

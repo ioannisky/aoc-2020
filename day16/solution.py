@@ -41,9 +41,10 @@ def evaluate(rules, nums):
         return falseNums
     return True
 
+
 def checkResolved(parray):
     for i in parray:
-        if(len(i)!=1):
+        if len(i) != 1:
             return False
     return True
 
@@ -65,7 +66,7 @@ if __name__ == "__main__":
             if stage == 1:
                 if line[-1] == ":":
                     continue
-                own_ticket=[int(i) for i in line.split(",")]
+                own_ticket = [int(i) for i in line.split(",")]
             if stage == 2:
                 if line[-1] == ":":
                     continue
@@ -90,18 +91,18 @@ if __name__ == "__main__":
                 parray[i].remove(rule)
 
     while not checkResolved(parray):
-        for i in range(0,len(parray)):
-            rules=parray[i]
-            if(len(rules)==1):
-                rule=rules[0]
-                for h in range(0,len(parray)):
-                    if(h!=i):
-                        if(rule in parray[h]):
+        for i in range(0, len(parray)):
+            rules = parray[i]
+            if len(rules) == 1:
+                rule = rules[0]
+                for h in range(0, len(parray)):
+                    if h != i:
+                        if rule in parray[h]:
                             parray[h].remove(rule)
 
-    mul=1
-    for i in range(0,len(parray)):
-        rule=parray[i][0]
-        if("departure" in rule.name):
-            mul*=own_ticket[i]
+    mul = 1
+    for i in range(0, len(parray)):
+        rule = parray[i][0]
+        if "departure" in rule.name:
+            mul *= own_ticket[i]
     print "Solution for part 2 {}".format(mul)

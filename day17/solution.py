@@ -166,65 +166,6 @@ class Cube2:
                     sys.stdout.write("\n")
 
 
-"""
-def getNeibours(data,z,y,x):
-    startz=z-1
-    endz=z+2
-    starty=y-1 
-    endy=y+2
-    startx=x-1 
-    endx=x+2
-    count=0
-    for q in range(startz,endz):
-        for i in range(starty,endy):
-            for h in range(startx,endx):
-                if(i==y and h==x):
-                    continue
-                if(data[i][h]=="#"):
-                    count+=1
-    return count    
-
-
-
-def playRound(data):
-    switch=[]
-    for i in range(0,len(data)):
-        for h in range(0,len(data[i])):
-            n=getNeibours(data,i,h)
-            if(data[i][h]=="#"):
-                if(n in [2,3]):
-                    continue
-                else:
-                    switch.append([i,h])
-            elif(data[i][h]=="." and n==3):
-                switch.append([i,h])
-    for a in switch:
-        y=a[0]
-        x=a[1]
-        if(data[y][x]=="."):
-            data[y][x]="#"
-        elif(data[y][x]=="#"):
-            data[y][x]="."
-        else:
-            raise Exception("Invalid datat "+data[y][x])
-
-
-
-
-def printData(data):
-    for l in data:
-        print "".join(l)
-
-def countActive(data):
-    count=0
-    for i in data:
-        for x in i:
-            if(x=="#"):
-                count+=1
-    return count
-"""
-
-
 def readData(fileName, cube):
     z = 0
     y = 0
